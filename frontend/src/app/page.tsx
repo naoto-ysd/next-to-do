@@ -1,5 +1,6 @@
 import TodoList from "@/components/TodoList";
 import Message from "@/components/Message";
+import MyCarousel from "@/components/MyCarousel";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <TodoList />
           <Message />
+          <MyCarousel />
         </div>
       </main>
       <footer className="bg-gray-800 text-white py-4">

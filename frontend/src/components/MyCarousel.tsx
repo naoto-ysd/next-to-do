@@ -31,21 +31,17 @@ const SampleComponent3 = () => (
 );
 
 
-export const MyCarousel = () => {
+export default function MyCarousel() {
   return (
     <Swiper
       // 使用するモジュールを指定
       modules={[Navigation, Pagination, A11y]}
-      // スライド間のスペース
-      spaceBetween={30}
       // 表示するスライドの数
       slidesPerView={1}
       // 左右のナビゲーションボタンを有効にする
       navigation
       // ページネーション（下の丸いインジケーター）を有効にする
       pagination={{ clickable: true }}
-      // ループ表示を有効にする
-      loop={true}
     >
       <SwiperSlide>
         <SampleComponent1 />
@@ -55,13 +51,6 @@ export const MyCarousel = () => {
       </SwiperSlide>
       <SwiperSlide>
         <SampleComponent3 />
-      </SwiperSlide>
-      {/* 他にもコンポーネントを追加可能 */}
-      <SwiperSlide>
-        <div style={{ background: '#ffffdd', padding: '2rem', height: '200px' }}>
-          <h2>シンプルなHTML要素</h2>
-          <p>コンポーネントだけでなく、JSXを直接記述することも可能です。</p>
-        </div>
       </SwiperSlide>
     </Swiper>
   );
