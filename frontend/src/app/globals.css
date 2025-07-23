@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Swiper dark mode styles */
+.dark-swiper .swiper-button-next,
+.dark-swiper .swiper-button-prev {
+  color: #ffffff !important;
+}
+
+.dark-swiper .swiper-pagination-bullet {
+  background: #666666 !important;
+}
+
+.dark-swiper .swiper-pagination-bullet-active {
+  background: #ffffff !important;
+}
