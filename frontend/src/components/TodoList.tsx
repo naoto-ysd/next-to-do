@@ -87,6 +87,7 @@ export default function TodoList() {
               checked={todo.completed}
               onChange={() => toggleTodo(todo.id)}
               className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+              aria-label={`タスク「${todo.text}」を${todo.completed ? '未完了' : '完了'}にする`}
             />
             <span
               className={`flex-1 transition-colors duration-300 ${
