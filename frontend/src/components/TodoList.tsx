@@ -67,7 +67,7 @@ export default function TodoList() {
         <input
           type="date"
           value={inputDueDate ? inputDueDate.toISOString().split('T')[0] : ''}
-          onChange={(e) => setInputDueDate(e.target.value ? new Date(e.target.value) : null)}
+          onChange={(e) => setInputDueDate(e.target.value ? new Date(e.target.value) : undefined)}
           className={`px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
             theme === 'dark' 
               ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
