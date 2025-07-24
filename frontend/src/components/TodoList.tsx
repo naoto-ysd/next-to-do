@@ -92,8 +92,8 @@ export default function TodoList() {
             <span
               className={`flex-1 transition-colors duration-300 ${
                 todo.completed
-                  ? theme === 'dark' 
-                    ? 'line-through text-gray-400' 
+                  ? theme === 'dark'
+                    ? 'line-through text-gray-400'
                     : 'line-through text-gray-500'
                   : theme === 'dark'
                     ? 'text-gray-200'
