@@ -7,12 +7,14 @@ interface Todo {
   id: number;
   text: string;
   completed: boolean;
+  dueDate?: Date;
 }
 
 export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [inputValue, setInputValue] = useState('');
   const { theme } = useTheme();
+  const [inputDueDate, setInputDueDate] = useState<Date | undefined>(undefined);
 
   const addTodo = () => {
     if (inputValue.trim() !== '') {
@@ -22,9 +24,11 @@ export default function TodoList() {
           id: Date.now(),
           text: inputValue,
           completed: false,
+          dueDate: inputDueDate
         },
       ]);
       setInputValue('');
+      setInputDueDate(undefined);
     }
   };
 
@@ -59,6 +63,17 @@ export default function TodoList() {
               ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
               : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
           }`}
+        />
+        <input
+          type="date"
+          value={inputDueDate ? inputDueDate.toISOString().split('T')[0] : ''}
+          onChange={(e) => setInputDueDate(e.target.value ? new Date(e.target.value) : null)}
+          className={`px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
+            theme === 'dark' 
+              ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+              : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+          }`}
+          aria-label="タスクの期限を選択"
         />
         <button
           onClick={addTodo}
@@ -101,6 +116,9 @@ export default function TodoList() {
               }`}
             >
               {todo.text}
+            </span>
+            <span>
+              期限: {todo.dueDate?.toLocaleDateString('ja-JP')}
             </span>
             <button
               onClick={() => deleteTodo(todo.id)}
